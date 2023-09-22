@@ -1,0 +1,20 @@
+.headbar{
+    height: 120px;
+    background-color: pink;
+    /* justify-content: space-between; */
+    display: flex;
+    color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    border-radius: 20px;
+    justify-content: space-between;
+}
+.headerbar-photo{
+    border-radius: 100%;
+    border: 3px solid white;
+    margin: auto;
+    margin-left: 10px;
+    width: 102px;
+    height: 102px;
+}

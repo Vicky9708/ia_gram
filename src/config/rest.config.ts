@@ -1,25 +1,11 @@
-import axios, { AxiosInstance } from "axios";
+import axios from "axios";
 import { ENDPOINT } from "./environment.config";
-const { CancelToken } = axios;
-const { source } = CancelToken;
-/**
- * Config
- */
-const http: AxiosInstance = axios.create({
-	baseURL: ENDPOINT,
-	headers: {
-		"Content-Type": "application/json; charset=UTF-8",
-		"Access-Control-Allow-Origin": "*",
-		Accept: "application/json",
-	},
-	cancelToken: source().token,
-});
 /**
  * Method that handle network errors
  * @param reject 
  */
 const handle_error = (reject: any) => {
-	const errorStatus = reject.response.status;
+	const errorStatus = reject?.response?.status;
 	switch (errorStatus) {
 		case 400:
 		case 401:
@@ -33,7 +19,7 @@ const handle_error = (reject: any) => {
 /**
  * Method that intercept service's answer, if there is a error, it calls the handler
  */
-http.interceptors.response.use(
+axios.interceptors.response.use(
 	(response) => {        
 		return response.data;
 	},
@@ -43,36 +29,40 @@ http.interceptors.response.use(
 	}
 );
 /**
- * Método de Http para postear información.
+ * Método de axios para postear información.
  * @param params Configuración del servicio.
  * @returns Promesa con la respuesta del servicio.
  */
 const post = async <T>({
 	url,
 	payload,
+	base=true
 }: ISettingsService): Promise<T> => {
-	return await http.post(ENDPOINT+ url, payload);
+	return await axios.post(base?ENDPOINT+url:url, payload);
 };
 /**
- * Método de Http para actualizar información.
+ * Método de axios para actualizar información.
  * @param params Configuración del servicio.
  * @returns Promesa con la respuesta del servicio.
  */
 const put = async <T>({
 	url,
 	payload,
+	base=true
 }: ISettingsService): Promise<T> => {
-	return await http.put(ENDPOINT + url, payload);
+	return await axios.put(base?ENDPOINT+url:url,payload);
 };
 /**
- * Método de Http para obtener información.
+ * Método de axios para obtener información.
  * @param params Configuración del servicio.
  * @returns Promesa con la respuesta del servicio.
  */
 const get = async <T>({
 	url,
-}: ISettingsService): Promise<T> => {
-	return await http.get(ENDPOINT+url);
+	base=true,
+	options
+	}: ISettingsService): Promise<T> => {
+	return await axios.get(base?ENDPOINT+url:url,options);
 };
 
 /** Axios interface. */
@@ -82,7 +72,9 @@ interface ISettingsService {
 	/** Service body. */
 	payload?: any;
 	/** Additional config */
-	options?:any
+	options?:any;
+	/**If we need url base */
+	base?:boolean,
 
 }
-export { http, post, put, get };
+export { axios, post, put, get };
