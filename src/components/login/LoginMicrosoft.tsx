@@ -14,7 +14,7 @@ export const LoginMicrosoft = () => {
 				withUserData={true}
 				authCallback={loginMicrosoft}
 				children={
-					<Button size="large" className="m-8" icon={<WindowsOutlined />} block>
+					<Button size="large" className="m-8 login-btn-text" icon={<WindowsOutlined />} block>
 						Inicia sesión con Microsoft
 					</Button>
 				}

@@ -1,5 +1,8 @@
 //logic
-import { deleteImg, onChangeInputFile } from "../../modules/upload/upload.module";
+import {
+	deleteImg,
+	onChangeInputFile,
+} from "../../modules/upload/upload.module";
 //store
 import { useUploadStore } from "../../store/upload.store";
 //libraries
@@ -23,15 +26,15 @@ export const UploadImg = () => {
 		<>
 			{imageLoaded ? (
 				<div>
-					<div style={{ textAlign: "center" }} className="m-8">
+					<div className="m-8 upload-center">
 						<Image
-							style={{ borderRadius: "20px", display: "block" }}
+							className="upload-preview"
 							width={400}
 							src={imageData?.src ?? ""}
 						/>
 						<DeleteOutlined
 							onClick={deleteImg}
-							style={{ fontSize: "20px", color: "pink" }}
+							className="upload-icon-delete"
 						/>
 						<p style={{ textAlign: "left" }}>
 							<PaperClipOutlined />
@@ -41,15 +44,14 @@ export const UploadImg = () => {
 				</div>
 			) : (
 				<div className="flex">
-				<label className="upload-container-input-file">
+					<label className="upload-container-input-file">
 						<InboxOutlined />
-					<p className="ant-upload-text">
-						Haz clic o arrastra en esta area para cargar tu foto
-					</p>
-					<input onChange={onChangeInputFile} type="file" />
-				</label>
+						<p className="ant-upload-text">
+							Haz clic o arrastra en esta area para cargar tu foto
+						</p>
+						<input onChange={onChangeInputFile} type="file" />
+					</label>
 				</div>
-
 			)}
 		</>
 	);

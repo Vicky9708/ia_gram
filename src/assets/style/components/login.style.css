@@ -4,3 +4,10 @@ text-align: center;
 .login-avatar{
 background: pink;
 }
+.login-title{
+    text-align: center;
+    color: pink;
+}
+.login-btn-text{
+    font-weight: 700;
+}

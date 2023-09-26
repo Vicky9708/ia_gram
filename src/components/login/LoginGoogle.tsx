@@ -23,7 +23,7 @@ export const LoginGoogle = () => {
 		<>
 			<Button
 				size="large"
-				className="m-8"
+				className="m-8 login-btn-text"
 				onClick={() => {
 					login();
 				}}

@@ -9,7 +9,8 @@ export const Login = () => {
 	return (
 		<div className="m-auto">
 			<div>
-				<Card className="w-500">
+				<Card className="upload-card">
+					<h2 className="login-title">Bienvenidos a IA Gram</h2>
 					<div className="login-container-avatar">
 					<Avatar size={150} className="login-avatar" icon={<UserOutlined />} />
 					</div>				

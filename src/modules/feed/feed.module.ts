@@ -6,8 +6,8 @@ import { useUploadStore } from "../../store/upload.store";
  */
 const deleteImgFeed = (titleImg: string) => {
 	const { images, setImages } = useUploadStore.getState();
-	let newArrayImgs: any = [...images];
-	newArrayImgs = newArrayImgs.filter((img: any) => img.title !== titleImg);
+	let imagesStore: any = [...images];
+	const newArrayImgs = imagesStore.filter((img: any) => img.title !== titleImg);	
 	setImages(newArrayImgs);
 };
 /**

@@ -16,7 +16,7 @@ export const CardPhoto = (props: ICardPhoto) => {
 
 	useEffect(() => {
 		drawSquare(props.src, props.index, props.ia, false, "load");
-	}, []);
+	}, [props.title]);
 	
 	return (
 		<>
