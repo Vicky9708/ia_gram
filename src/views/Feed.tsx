@@ -26,7 +26,7 @@ export const Feed = () => {
 				</div>
 			)}
 			<FloatButton
-				icon={<PlusOutlined />}
+				icon={<PlusOutlined title="Cargar nueva foto" />}
 				onClick={() => {
 					routerLink(routes.UPLOAD);
 				}}
