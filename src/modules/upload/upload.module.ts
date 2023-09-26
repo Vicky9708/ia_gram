@@ -17,19 +17,24 @@ const onChangeInputFile = (event: any) => {
 	const archivo: any = event.target.files[0];
 	const readerBlob = new FileReader();
 	const readerSrc = new FileReader();
-
-	readerBlob.onload = function (eBlob: any) {
-		const blob = new Blob([new Uint8Array(eBlob.target.result)], {
-			type: archivo.type,
-		});
-		readerSrc.onload = function (eSrc: any) {
-			setImageData({ src: eSrc.target.result,file: blob, nameFile: archivo.name,title:imageData.title });
+	if(archivo.type==='image/jpeg'||archivo.type==='image/png'||archivo.type==='image/jpeg'){
+		readerBlob.onload = function (eBlob: any) {
+			const blob = new Blob([new Uint8Array(eBlob.target.result)], {
+				type: archivo.type,
+			});
+			readerSrc.onload = function (eSrc: any) {
+				setImageData({ src: eSrc.target.result,file: blob, nameFile: archivo.name,title:imageData.title });
+			};
+			readerSrc.readAsDataURL(archivo);
 		};
-		readerSrc.readAsDataURL(archivo);
-	};
-	readerBlob.readAsArrayBuffer(archivo);
+		readerBlob.readAsArrayBuffer(archivo);
+	
+		setImageLoaded(true);
+	}else{
+		message.error('El formato de la foto que subiste es inválido, por favor intenta con otra foto')
+	}
 
-	setImageLoaded(true);
+
 };
 /**
  * Mehos that deletes the img loaded in fileInput

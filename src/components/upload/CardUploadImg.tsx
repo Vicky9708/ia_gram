@@ -27,7 +27,7 @@ export const CardUploadImg = () => {
 							onInput={(event:any)=>setImageData({...imageData,title:event.target.value})}
 						/>
 						<div className="flex">
-						<Button size="large" className="m-8 login-btn-text"  type="primary" onClick={saveImgs} block>
+						<Button size="large" disabled={imageData.file===null||imageData.title.trim()===""} className="m-8 login-btn-text"  type="primary" onClick={saveImgs} block>
 							Publicar
 						</Button>
 						<Button size="large" className="m-8 login-btn-text" type="default" onClick={()=>routerLink(routes.FEED)} block>

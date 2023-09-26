@@ -49,7 +49,7 @@ export const UploadImg = () => {
 						<p className="ant-upload-text">
 							Haz clic o arrastra en esta area para cargar tu foto
 						</p>
-						<input onChange={onChangeInputFile} type="file" />
+						<input onChange={onChangeInputFile} accept=".jpg,.png,.jpeg)" type="file" />
 					</label>
 				</div>
 			)}
