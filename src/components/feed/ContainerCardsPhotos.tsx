@@ -1,3 +1,4 @@
+//Component
 import { CardPhoto } from "./CardPhoto";
 
 export const ContainerCardsPhotos = (props: any) => {
@@ -12,6 +13,8 @@ export const ContainerCardsPhotos = (props: any) => {
 						file={card.file}
 						ia={card.ia}
 						index={index}
+						fav={card.fav}
+						showPercentage={card.showPercentage}
 					/>
 				);
 			})}

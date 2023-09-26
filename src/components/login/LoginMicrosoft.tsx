@@ -1,10 +1,10 @@
+//logic
+import { loginMicrosoft } from "../../modules/login/login.module";
+//libraries
+import { Button } from "antd";
+import { WindowsOutlined } from "@ant-design/icons";
 import MicrosoftLogin from "react-microsoft-login";
 import { CLIENT_ID_MICROSOFT } from "../../config/environment.config";
-import {
-	loginMicrosoft,
-} from "../../modules/login/login.module";
-import { Button } from "antd";
-import { GoogleOutlined } from "@ant-design/icons";
 
 export const LoginMicrosoft = () => {
 	return (
@@ -14,8 +14,8 @@ export const LoginMicrosoft = () => {
 				withUserData={true}
 				authCallback={loginMicrosoft}
 				children={
-					<Button size="large" icon={<GoogleOutlined />} block >
-						Incia sesión con Microsoft
+					<Button size="large" className="m-8" icon={<WindowsOutlined />} block>
+						Inicia sesión con Microsoft
 					</Button>
 				}
 			/>

@@ -7,5 +7,7 @@ export interface ICardPhoto{
     src:string,
     file:any,
     ia:any,
-    index:number
+    index:number,
+    fav:boolean,
+    showPercentage:boolean
 }

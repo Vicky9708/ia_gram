@@ -1,84 +1,62 @@
+//interface
 import { ICardPhoto } from "../../model/feed.model";
-import { DeleteOutlined } from "@ant-design/icons";
-import { deleteImgFeed } from "../../modules/upload/upload.module";
+//logic
+import { drawSquare, deleteImgFeed, deleteFavFeed, addFavFeed } from "../../modules/feed/feed.module";
+//libraries
 import { useEffect } from "react";
+import {
+	DeleteOutlined,
+	HeartOutlined,
+	PercentageOutlined,
+	HeartFilled,
+} from "@ant-design/icons";
+
 
 export const CardPhoto = (props: ICardPhoto) => {
-	const drawSquare = () => {
-		var canvas: any = document.getElementById(`canva${props.index}`);
-		var ctx = canvas.getContext("2d");
-		const predictions = props.ia.predictions.filter(
-			(prediction: any) => prediction.tagName === "Face"
-		);
-		console.log(predictions);
-		
 
-		const img = new Image();
-		img.src = props.src;
-		canvas.width = img.width;
-		canvas.height = img.height;
-		img.onload = function () {
-			ctx.drawImage(img, 0, 0);
-			ctx.strokeStyle = "chartreuse";
-			predictions.forEach((prediction: any) => {
-				console.log(prediction.boundingBox.left * 600,
-					prediction.boundingBox.top * 300,
-					prediction.boundingBox.width * 500,
-					prediction.boundingBox.height * 250,img.width,img.height);
-				
-					ctx.strokeRect(
-						prediction.boundingBox.left * 600,
-						prediction.boundingBox.top * 300,
-						prediction.boundingBox.width * 500,
-						prediction.boundingBox.height * 250
-					);
-			});
-		};
-	};
 	useEffect(() => {
-		drawSquare();
+		drawSquare(props.src, props.index, props.ia, false, "load");
 	}, []);
-
+	
 	return (
 		<>
-			<div
-				style={{
-					borderRadius: "20px",
-					textAlign: "center",
-					paddingTop: "10px",
-					marginBottom: "-50px",
-					position: "relative",
-				}}
-			>
+			<div className="feed-container-img">
 				<DeleteOutlined
-					style={{
-						fontSize: "30px",
-						color: "pink",
-						position: "absolute",
-						right: "20px",
-						top: "20px",
-					}}
+					title="Eliminar"
+					className="feed-icon-delete"
 					onClick={() => deleteImgFeed(props.title)}
 				/>
-				<img className="hidden" src={props.src}/>
-				<canvas style={{ borderRadius: "20px" }} id={`canva${props.index}`} />
-				<div
-					style={{
-						display: "flex",
-						top: "-100px",
-						position: "relative",
-						zIndex: "1",
-					}}
-				>
-					<div
-						style={{
-							background: "#808080d1",
-							margin: "auto",
-							borderRadius: "5px",
-							color: "white",
-							width: "400px",
-						}}
-					>
+				{props.fav ? (
+					<HeartFilled
+						title="Eliminar de favoritos"
+						className="feed-icon-fav"
+						onClick={() => deleteFavFeed(props.title)}
+					/>
+				) : (
+					<HeartOutlined
+						title="Agregar a favoritos"
+						className="feed-icon-fav"
+						onClick={() => addFavFeed(props.title)}
+					/>
+				)}
+
+				<PercentageOutlined
+					title="Mostrar porcentaje que ocupa en pantalla"
+					className="feed-icon-percentage"
+					onClick={() =>
+						drawSquare(
+							props.src,
+							props.index,
+							props.ia,
+							props.showPercentage,
+							"icon"
+						)
+					}
+				/>
+				<img className="hidden" src={props.src} />
+				<canvas className="border-radius" id={`canva${props.index}`} />
+				<div className="feed-container-title-img">
+					<div className="feed-container-title-text">
 						<p>{props.title}</p>
 					</div>
 				</div>

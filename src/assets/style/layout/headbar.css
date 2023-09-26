@@ -1,40 +1,44 @@
-.headbar{
-    height: 120px;
-    background-color: pink;
-    display: flex;
-    color: white;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-top: 5px;
-    border-radius: 20px;
-    justify-content: space-between;
-}
-.headerbar-photo{
-    border-radius: 100%;
-    border: 3px solid white;
-    margin: auto;
-    margin-left: 10px;
-    width: 102px;
-    height: 102px;
-}
-.scrollbar-primary::-webkit-scrollbar {
-	background-color: transparent;
-	width: 10px;
-	border-radius: 10px;
-}
-.scrollbar-primary::-webkit-scrollbar:horizontal {
-    height: 10px;
-}
-.scrollbar-primary::-webkit-scrollbar-thumb {
+.headbar {
+	height: 120px;
+	background-color: pink;
+	display: flex;
+	color: white;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 5px;
 	border-radius: 20px;
-	-webkit-box-shadow: inset 0 0 2px rbga(0, 0, 0, 0.1);
-	width: 10px;
-	background-color: pink !important
+	justify-content: space-between;
 }
-
-.scrollbar-primary {
-	scrollbar-color: pink transparent !important;
-	overflow-y: auto !important;
-	overflow-x: auto !important;
-	scrollbar-width: thin;
+.headerbar-photo {
+	border-radius: 100%;
+	border: 3px solid white;
+	margin: auto;
+	margin-left: 10px;
+	width: 102px;
+	height: 102px;
+}
+.headbar-container-info {
+	margin-left: 50px;
+}
+.headbarr-name {
+	font-size: larger;
+}
+.headbar-mail {
+	margin-top: -7px;
+}
+.headbar-mobilePhone {
+	margin-top: -15px;
+}
+.headbar-container-icon-exit{
+    display: flex;
+    margin-right: 20px;
+}
+.headbar-icon-exit{
+    font-size: 30px;
+    margin: auto;
+}
+.header-icon-fav{
+	margin-right: 20px;
+	font-size: 30px;
+	color: white;
 }

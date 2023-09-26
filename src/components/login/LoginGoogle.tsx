@@ -1,9 +1,10 @@
-/**Import logic */
-import { loginGoogle, logout } from "../../modules/login/login.module";
-/**Import libraries */
+//logic
+import { loginGoogle } from "../../modules/login/login.module";
+// libraries
 import { Button } from "antd";
 import { GoogleOutlined } from "@ant-design/icons";
-import { googleLogout, useGoogleLogin } from "@react-oauth/google";
+import { useGoogleLogin } from "@react-oauth/google";
+import { message } from 'antd';
 
 export const LoginGoogle = () => {
 
@@ -14,26 +15,22 @@ export const LoginGoogle = () => {
 		onSuccess: (codeResponse) => {
 			loginGoogle(codeResponse.access_token);
 		},
-		onError: (error) => console.log("Login Failed:", error),
+		onError: (error) =>{
+			message.error('Hubo un error al acceder con Google')
+		} ,
 	});
-    /**
-     * Method that closes the Google connection
-     */
-	const logOut = () => {
-		googleLogout();
-		logout();
-	};
 	return (
 		<>
 			<Button
 				size="large"
+				className="m-8"
 				onClick={() => {
 					login();
 				}}
                 block
 				icon={<GoogleOutlined />}
 			>
-				Incia sesión con Google
+				Inicia sesión con Google
 			</Button>
 		</>
 	);

@@ -1,6 +1,8 @@
+//interface
+import { ILoginStore } from '../model/login.model';
+//libraries
 import {create} from 'zustand'
 import { persist,createJSONStorage } from 'zustand/middleware';
-import { ILoginStore } from '../model/login.model';
 export const useLoginStore = create<ILoginStore>()(persist(
     (set) => ({
     userData:null,

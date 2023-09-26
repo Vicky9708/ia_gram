@@ -1,27 +1,28 @@
-.upload-container-input-file{
-    border: 3px dashed;
-    display: block;
-    height: 200px;
-    width: 400px;
-    text-align: center;
-    color: pink;
-    border-radius: 20px;
-    margin: auto;
+.upload-container-input-file {
+	border: 3px dashed;
+	display: block;
+	height: 200px;
+	width: 400px;
+	text-align: center;
+	color: pink;
+	border-radius: 20px;
+	margin: auto;
 }
-.upload-container-input-file p{
-    color: black;
+.upload-container-input-file p {
+	color: black;
 }
-.upload-container-input-file svg{
-    font-size: 100px;
+.upload-container-input-file svg {
+	font-size: 100px;
 }
-.w-input-title{
-    width: 400px;
-    min-width: 400px;
-    margin: 8px;
+.w-input-title {
+	width: 400px;
+	min-width: 400px;
+	margin: 8px;
 }
 
-.upload-card{
-    box-shadow: -2px 4px 20px 0px grey;
-    width: 500px;
-
+.upload-card {
+	box-shadow: -2px 4px 20px 0px grey;
+	width: 500px;
 }
+
+

@@ -1,7 +1,9 @@
-// Import router
+//Libraries router
 import { Routes, Route, Navigate } from "react-router-dom";
-import { Login } from "../views/Login";
+//logic
 import { routes } from "./routes.routes";
+//View
+import { Login } from "../views/Login";
 export const RoutesPublic = () => {
 	return (
 		<>

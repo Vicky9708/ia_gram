@@ -1,3 +1,8 @@
+//logic
+import { deleteImg, onChangeInputFile } from "../../modules/upload/upload.module";
+//store
+import { useUploadStore } from "../../store/upload.store";
+//libraries
 import { Image } from "antd";
 import { shallow } from "zustand/shallow";
 import {
@@ -5,9 +10,6 @@ import {
 	DeleteOutlined,
 	PaperClipOutlined,
 } from "@ant-design/icons";
-
-import { deleteImg, onChangeInputFile } from "../../modules/upload/upload.module";
-import { useUploadStore } from "../../store/upload.store";
 
 export const UploadImg = () => {
 	const { imageData, imageLoaded } = useUploadStore(

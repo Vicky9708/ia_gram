@@ -1,5 +1,6 @@
-// Import router
+//Libraries
 import { Routes, Route, Navigate } from "react-router-dom";
+//Views
 import { Upload } from "../views/Upload";
 import { Feed } from "../views/Feed";
 import { routes } from "./routes.routes";

@@ -1,10 +1,13 @@
-import { Button, Card, Input } from "antd";
-import { UploadImg } from "./UploadImg";
+//logic
 import { saveImgs } from "../../modules/upload/upload.module";
-import { useUploadStore } from "../../store/upload.store";
 import { routerLink } from "../../modules/utils/utils.module";
 import { routes } from "../../routes/routes.routes";
-
+//store
+import { useUploadStore } from "../../store/upload.store";
+//libraries
+import { Button, Card, Input } from "antd";
+//Component
+import { UploadImg } from "./UploadImg";
 export const CardUploadImg = () => {
 	const { imageData, setImageData } = useUploadStore((state) => ({
 		imageData: state.imageData,
