@@ -1,5 +1,4 @@
 import { get } from "../../config/rest.config";
-import { useLoginStore } from "../../store/login.store";
 
 const getApiService = (): Promise<{}> =>
 	get<{}>({

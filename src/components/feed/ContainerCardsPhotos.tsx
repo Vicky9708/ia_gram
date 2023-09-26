@@ -7,9 +7,11 @@ export const ContainerCardsPhotos = (props: any) => {
 				return (
 					<CardPhoto
 						key={index}
-						photo={card.photo}
 						title={card.title}
-						description={card.description}
+						src={card.src}
+						file={card.file}
+						ia={card.ia}
+						index={index}
 					/>
 				);
 			})}

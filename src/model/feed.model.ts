@@ -3,7 +3,9 @@ export interface IFeedStore {
     setFeed: (newFeed: any) => void
 }
 export interface ICardPhoto{
-    photo:any,
     title:string,
-    description:string
+    src:string,
+    file:any,
+    ia:any,
+    index:number
 }

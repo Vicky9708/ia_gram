@@ -1,30 +1,13 @@
 import axios from "axios";
 import { ENDPOINT } from "./environment.config";
 /**
- * Method that handle network errors
- * @param reject 
- */
-const handle_error = (reject: any) => {
-	const errorStatus = reject?.response?.status;
-	switch (errorStatus) {
-		case 400:
-		case 401:
-		case 403:
-		case 404:
-		case 500:
-		default:
-			alert("Error");
-	}
-};
-/**
  * Method that intercept service's answer, if there is a error, it calls the handler
  */
 axios.interceptors.response.use(
 	(response) => {        
 		return response.data;
 	},
-	async (error) => {
-		handle_error(error);
+	async (error) => {		
 		return Promise.reject(error);
 	}
 );
@@ -36,9 +19,10 @@ axios.interceptors.response.use(
 const post = async <T>({
 	url,
 	payload,
-	base=true
+	base=true,
+	options
 }: ISettingsService): Promise<T> => {
-	return await axios.post(base?ENDPOINT+url:url, payload);
+	return await axios.post(base?ENDPOINT+url:url, payload,options);
 };
 /**
  * Método de axios para actualizar información.
