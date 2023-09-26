@@ -32,8 +32,7 @@ export const Menubar = (props: any) => {
 								<img className="headerbar-photo" src={user.photo} />
 							) : (
 								<UserOutlined
-									className="headerbar-photo"
-									style={{ fontSize: "85px" }}
+									className="header-icon-profile"
 									color="white"
 								/>
 							)}

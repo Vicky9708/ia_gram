@@ -42,3 +42,15 @@
 	font-size: 30px;
 	color: white;
 }
+.header-icon-profile{
+	font-size: 85px;
+	border-radius: 100%;
+	border: 3px solid white;
+	margin: auto;
+	width: 102px;
+	height: 102px;
+	margin-left: 10px !important;
+}
+.header-icon-profile svg{
+	margin-left: 10px !important;
+}
