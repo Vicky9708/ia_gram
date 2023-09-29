@@ -8,23 +8,19 @@
 .feed-icon-delete{
     font-size: 30px;
     color: pink;
-    position: absolute;
-    right: 20px;
-    top: 20px;
+    margin-top: 20px;
 }
 .feed-icon-fav{
     font-size: 30px;
     color: pink;
-    position: absolute;
-    right: 20px;
     top: 60px;
+    margin-top: 20px;
 }
 .feed-icon-percentage{
     font-size: 30px;
     color: pink;
-    position: absolute;
-    right: 20px;
     top: 100px;
+    margin-top: 20px;
 }
 .feed-container-title-img{
     display: flex;
@@ -33,10 +29,10 @@
     z-index: 1;
 }
 .feed-container-title-text{
-    background: #808080d1;
+    background: #ffc0cba6;
     margin: auto;
     border-radius: 5px;
-    color: pink;
+    color: white;
     width: 400px;
 }
 .feed-icon-empty{
@@ -46,4 +42,20 @@
 .feed-text-empty{
     font-size: 40px;
     color: grey;
+}
+.feed-img{
+    @media (max-width: 900px) {
+          width: 400px;        
+      };
+}
+.feed-img{
+    @media (min-width: 899px) {
+        width: 600px;        
+    }; 
+}
+.feed-container-icons-actions{
+    position: absolute;
+    right: 20px;
+    display: grid;
+    background: white;
 }

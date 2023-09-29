@@ -7,7 +7,7 @@ import { useUploadStore } from "../../store/upload.store";
 const deleteImgFeed = (titleImg: string) => {
 	const { images, setImages } = useUploadStore.getState();
 	let imagesStore: any = [...images];
-	const newArrayImgs = imagesStore.filter((img: any) => img.title !== titleImg);	
+	const newArrayImgs = imagesStore.filter((img: any) => img.title !== titleImg);
 	setImages(newArrayImgs);
 };
 /**
@@ -77,41 +77,43 @@ const drawSquare = (
 	img.onload = function () {
 		ctx.drawImage(img, 0, 0);
 		ctx.strokeStyle = "chartreuse";
+		ctx.bac
 		if (show) {
 			ctx.font = "bold 15px serif";
 			ctx.fillStyle = "chartreuse";
 		}
 		let totalFaces: number = 0;
 		predictions.forEach((prediction: any) => {
-			ctx.strokeRect(
-				prediction.boundingBox.left * 600,
-				prediction.boundingBox.top * 300,
-				prediction.boundingBox.width * 500,
-				prediction.boundingBox.height * 250
-			);
+				ctx.strokeRect(
+					calcScale(prediction.boundingBox.left, img.width),
+					calcScale(prediction.boundingBox.top, img.height),
+					calcScale(prediction.boundingBox.width, img.width),
+					calcScale(prediction.boundingBox.height, img.height)
+				);
 
-			if (show) {
-				totalFaces =
-					totalFaces +
-					Number(
-						calcPercentage(
+				if (show) {
+					totalFaces =
+						totalFaces +
+						Number(
+							calcPercentage(
+								img.width,
+								img.height,
+								calcScale(prediction.boundingBox.width, img.width),
+								calcScale(prediction.boundingBox.height, img.height)
+							)
+						);
+					ctx.fillText(
+						`${calcPercentage(
 							img.width,
 							img.height,
-							prediction.boundingBox.width * 500,
-							prediction.boundingBox.height * 250
-						)
+							calcScale(prediction.boundingBox.width, img.width),
+							calcScale(prediction.boundingBox.height, img.height)
+						)}%`,
+						calcScale(prediction.boundingBox.left, img.width) + 10,
+						calcScale(prediction.boundingBox.top, img.height) + 20
 					);
-				ctx.fillText(
-					`${calcPercentage(
-						img.width,
-						img.height,
-						prediction.boundingBox.width * 500,
-						prediction.boundingBox.height * 250
-					)}%`,
-					prediction.boundingBox.left * 600 + 10,
-					prediction.boundingBox.top * 300 + 20
-				);
-			}
+				}
+			
 		});
 		if (show) {
 			ctx.fillText(`${totalFaces.toFixed(2)}%`, 10, 20);
@@ -136,5 +138,8 @@ const calcPercentage = (
 	const areaRectangle = widthRectangle * heightRectangle;
 	const percentage = (areaRectangle * 100) / areaImg;
 	return percentage.toFixed(2);
+};
+const calcScale = (valueToConvertPercentage: number, valueInPx: number) => {
+	return (valueToConvertPercentage * 100 * valueInPx) / 100;
 };
 export { addFavFeed, deleteFavFeed, deleteImgFeed, drawSquare };
