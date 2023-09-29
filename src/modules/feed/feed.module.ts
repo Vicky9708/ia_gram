@@ -77,7 +77,6 @@ const drawSquare = (
 	img.onload = function () {
 		ctx.drawImage(img, 0, 0);
 		ctx.strokeStyle = "chartreuse";
-		ctx.bac
 		if (show) {
 			ctx.font = "bold 15px serif";
 			ctx.fillStyle = "chartreuse";
